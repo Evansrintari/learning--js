@@ -21,9 +21,28 @@
         text-align: center;
         color: white;
       }
+      .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+        position: relative;
+      }
+      nav,
+      a {
+        position: absolute;
+        top: 50px;
+        right: -50px;
+        transform: translate(0, -20%);
+      }
     </style>
   </head>
   <body>
+    <nav class="header">
+      <a href="">home</a>
+      <a href="">blog</a>
+    </nav>
+
     <h1>JavaScript Fundamentals – Part 2</h1>
     <!-- <script src="script.js"></script> -->
 
