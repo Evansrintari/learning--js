@@ -183,7 +183,7 @@ console.log(jonas);
 console.log(
   `${jonas.firstName} has ${jonas.friends.length}, and his bnest friend is called${jonas.friends[0]}`
 );*/
-
+//
 const jonas = {
   firstName: "jonas",
   lastName: "schedmann",
@@ -193,8 +193,8 @@ const jonas = {
   hasDriversLicense: true,
   // always keep the code dry
   //  special variable called(this)
-  //this is == to the object  calling the method
-  //this point to jonas(object)
+  // this is == to the object  calling the method
+  // this point to jonas(object)
 
   calcAge4: function () {
     console.log(this);
@@ -214,3 +214,100 @@ console.log(jonas.age);
 
 // challange 2
 console.log(jonas.getSummary());
+
+//'LOOPS
+// alloWs to automate repetetive task
+
+// for (let rep = 1; rep <= 10; rep++) {
+// console.log(`hit the gym🏋️‍♂️${rep}🏋️‍♂️`);
+// }
+
+//aarays using the for loo
+
+const john = [
+  "john",
+  "miriti",
+  2037 - 1968,
+  "teacher",
+  ["micheal", "jamba", "maritime"],
+  true,
+];
+const types = [];
+for (let i = 0; i < john.length; i++) {
+  console.log(john[i]);
+
+  // filling an array
+  // types[i] = typeof john[i];
+  types.push(typeof john[i]);
+}
+console.log(types);
+
+// const years = [1991, 2002, 1983, 1959, 1971];
+// const ages = [];
+//
+// for (let i = 0; i < years.length; i++) {
+// ages.push(2037 - years[i]);
+// }
+//
+// console.log(ages);
+//
+// CONTINUE AND BREAK
+// exit the current itteration of the loop and continue to the next one
+// break is used to completely terminate the whole loop
+
+for (let i = 0; i < john.length; i++) {
+  if (typeof john[i] !== "string") continue;
+  console.log(john[i], typeof john[i]);
+}
+
+console.log("--ONLY BREAK WITH NUMBER---");
+for (let i = 0; i < john.length; i++) {
+  if (typeof john[i] === "number") break;
+  console.log(john[i], typeof john[i]);
+}
+
+const joel = [
+  "john",
+  "miriti",
+  2037 - 1968,
+  "teacher",
+  ["micheal", "jamba", "maritime"],
+];
+//loop from 4,3,2,1,0
+
+for (let i = joel.length - 1; i >= 0; i--) {
+  console.log(joel[i]);
+}
+
+// loop inside a loop
+// ther are different exercise anfd we want to repeat each of them three times
+for (let exercise = 1; exercise < 4; exercise++) {
+  console.log(`----------starting exercises${exercise}`);
+
+  for (let rep = 1; rep < 6; rep++) {
+    console.log(`liftingg weight repetitive${rep} 🏋️‍♂️`);
+  }
+}
+
+let rep = 10;
+while (rep >= 1) {
+  console.log(
+    `while lifting the weight the is no other business left in this occurrance ${rep}`
+  );
+  rep--;
+}
+
+// while loop is more versatile than the for loop
+// it means that it can be used in a larger grounds than for loop
+
+let dice = Math.trunc(Math.random() * 6) + 1;
+console.log(dice);
+while (dice !== 6) {
+  console.log(`you rolled a ${dice}`);
+  dice = Math.trunc(Math.random() * 6) + 1;
+  if (dice === 6) {
+    console.log("loop is about to end");
+  }
+}
+//
+//
