@@ -309,5 +309,6 @@ while (dice !== 6) {
     console.log("loop is about to end");
   }
 }
-//
-//
+////const calcAge5 = (birthYear) => console.log(1965);
+
+let;
