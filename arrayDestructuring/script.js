@@ -1,5 +1,19 @@
 'use strict';
-
+const weekdays = ['mon', 'tue', 'wens', 'thur', 'fri', 'sat', 'sun'];
+const openingHours = {
+  [weekdays[3]]: {
+    open: 12,
+    close: 22,
+  },
+  fri: {
+    open: 11,
+    close: 23,
+  },
+  sat: {
+    open: 0, // Open 24 hours
+    close: 24,
+  },
+};
 // Data needed for first part of the section
 const restaurant = {
   name: 'Classico Italiano',
@@ -7,35 +21,39 @@ const restaurant = {
   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    sat: {
-      open: 0, // Open 24 hours
-      close: 24,
-    },
-  },
-  order: function (starterindex, mainindex) {
+  // ENHANCED OBJECT LITERALs
+  openingHours,
+
+  order(starterindex, mainindex) {
     return [this.starterMenu[starterindex], this.mainMenu[mainindex]];
   },
-  orderDelivery: function ({ starterIndex, mainIndex, address, time }) {
+  orderDelivery({ starterIndex, mainIndex, address, time }) {
     console.log(`order recieved! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]}
    will be delivered to ${address} at this ${time}`);
   },
 
-  orderPasta: function (ing1, ing2, ing3) {
+  orderPasta(ing1, ing2, ing3) {
     console.log(
       ` here is your pasta with ${ing1}, ${ing2},and  ${ing3} order paasta`
     );
   },
 };
+//optional chaining
+restaurant.openingHours.mon && console.log(restaurant.openingHours.mon.open);
+// restaurant.openingHours.fri && console.log(restaurant.openingHours.fri.open);
 
+//looping for arrays
+//for of loop
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+for (const item of menu) console.log(item);
+
+for (const [i, el] of menu.entries()) {
+  console.log(`${i + 1}: ${el}`);
+}
+
+/*
+///////////////////////////////////////////////////////////////
 restaurant.orderDelivery({
   time: '22:30',
   address: 'al ve dela, 21',
@@ -141,10 +159,45 @@ restaurant.orderPasta(...ingredient);
 */
 
 // OBJECT
-
+/*
 const newRestaurant = { ...restaurant, founder: 'rintari', foundedIn: 1998 };
 console.log(newRestaurant);
 
+//SHORT CIRCUITING || AND &&
+//USE ANY DATA TYPE RETURN DATA TYPE, SHORT CIRCUITING
+restaurant.numGuests = 0;
+const guest2 = restaurant.numGuests || 10;
+console.log(guest2);
+
+const guestCorrect = restaurant.numGuests ?? 10;
+console.log(guestCorrect);
+
+console.log('----AND-----');
+
+restaurant.orderPasta && restaurant.orderPasta('mushroom', 'spinach');
+
+console.log('--------LOGICAL ASSIGNMENT');
+const rest1 = {
+  name: 'Capri',
+  numGuests: 20,
+};
+const rest2 = {
+  name: 'La-Piaza',
+  owner: 'Giovani rossi',
+};
+// OR ASSIGNMENT OPERATOR
+
+// rest1.numGuests = rest1.numGuests || 10;
+// rest2.numGuests = rest2.numGuests || 10;
+rest1.numGuests ||= 10;
+rest2.numGuests ||= 10;
+console.log(rest1);
+console.log(rest2);
+
+//And assignment operator
+
+rest2.owner &&= '<ANONYMOUS>';
+console.log(rest2);
 // ////////////////////////////////////////////////////
 
 /*
