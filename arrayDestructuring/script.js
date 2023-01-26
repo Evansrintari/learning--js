@@ -196,14 +196,13 @@ console.log(rest2);
 //And assignment operator
 
 rest2.owner &&= '<ANONYMOUS>';
-console.log(rest2);
+console.log(rest2);*/
 // ////////////////////////////////////////////////////
 
-/*
-const arr = [2, 3, 4];
-const a = arr[0];
-const b = arr[1];
-const c = arr[2];
+const arr1 = [2, 3, 4];
+const a1 = arr[0];
+const b1 = arr[1];
+const c1 = arr[2];
 
 const [x, y, z] = arr;
 console.log(x, y, z);
@@ -237,4 +236,3 @@ console.log(i, j, k);
 const [p = 1, q = 1, r = 1] = [8, 9];
 
 console.log(p, q, r);
-*/
