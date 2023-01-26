@@ -52,7 +52,6 @@ for (const [i, el] of menu.entries()) {
   console.log(`${i + 1}: ${el}`);
 }
 
-/*
 ///////////////////////////////////////////////////////////////
 restaurant.orderDelivery({
   time: '22:30',
